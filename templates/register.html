@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.min.css">
+    <script src="/static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="panel panel-primary">
+        <div class="panel-heading" style="background-color: #bce8f1">
+            <h3 class="panel-title text-center">用户注册</h3>
+        </div>
+        <div class="panel-body">
+            <div>
+                <form action="" method="post">
+                    <div class="form-group has-success">
+                        <label class="control-label" for="inputSuccess1">用户名</label>
+                        <input type="text" class="form-control" id="inputSuccess1" aria-describedby="helpBlock2"
+                               name="name">
+                    </div>
+                    <div class="form-group has-warning">
+                        <label class="control-label" for="inputWarning1">密码</label>
+                        <input type="text" class="form-control" id="inputWarning1">
+                    </div>
+                    <div class="form-group has-error">
+                        <label class="control-label" for="inputError1">确认密码</label>
+                        <input type="text" class="form-control" id="inputError1" name="password">
+                        <p style="color: firebrick">{{ error }}</p>
+                        <p style="color: firebrick">{{ tip }}</p>
+                    </div>
+                    <input type="submit" class="btn btn-success" style="display: block;float: left;margin-left: 450px">
+                </form>
+
+                <a href="{% url 'login' %}">
+                    <button type="submit" class="btn btn-warning" style="margin-left: 10px">返回</button>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

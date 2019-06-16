@@ -1,0 +1,67 @@
+{% extends 'home.html' %}
+
+{% block content %}
+    <h1 class="text-center">添加作者</h1>
+    <form action="" method="post">
+    <p>name:
+        <input type="text" class="form-control" name="name">
+    </p>
+    <p>age:
+        <input type="text" class="form-control" name="age">
+    </p>
+        <p>phone:
+            <input type="text" class="form-control" name="phone">
+        </p>
+
+        <span>addr:
+            <select name="" id="a1"></select>
+            <select name="addr" id="a2"></select>
+            </span>
+            <script>
+                let proEle=document.getElementById('a1');
+                let cityEle=document.getElementById('a2');
+                let data={"江苏省": ["苏州", "南京","常州","无锡"], "北京市": ["朝阳区", "海淀区"], "上海市": ["静安区", "闵行区"],"其他":["东京","巴黎","土星","木星"]};
+                // 将所有的省渲染到proEle标签内部，for循环获取所有的省
+                for (let pro in data){
+                    // 创建option标签
+                    let opEle=document.createElement('option');
+                    // 给option标签设置文本值
+                    opEle.innerText=pro;
+                    // 将生成的option添加到proEle中
+                    proEle.appendChild(opEle)
+                }
+                proEle.onchange=function () {
+                    // 先清空cityEle标签内所有内容
+                    cityEle.innerHTML='';
+                    // 获取用户选择的省，根据省拿到对应的市
+                    let choice_pro=proEle.value;
+                    let cityList=data[choice_pro];
+                    // for循环创建option标签添加到cityEle标签内
+                    for(let i=0;i<cityList.length;i++){
+                        // 创建option标签并添加文本
+                        let cEle=document.createElement('option');
+                        //给option标签设置文本值
+                        cEle.innerText=cityList[i]
+                        // 将生成的option添加到proEle中
+                        cityEle.appendChild(cEle)
+                    }
+                }
+
+            </script>
+
+        <input type="submit" class="btn bg-success pull-right">
+    </form>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<h1 class="text-center">编辑出版社</h1>
+    <form action="" method="post">
+    <p>name:
+        <input type="text" class="form-control" name="name" value="{{ edit_obj.name}}">
+    </p>
+    <p>addr:
+        <input type="text" class="form-control" name="addr" value="{{ edit_obj.addr }}">
+    </p>
+    <p>email:
+        <input type="text" class="form-control" name="email" value="{{ edit_obj.email }}">
+    </p>
+        <input type="submit" class="btn bg-success pull-right">
+    </form>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+

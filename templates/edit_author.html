@@ -1,0 +1,19 @@
+{% extends 'home.html' %}
+
+{% block content %}
+    <h1 class="text-center">编辑作者信息</h1>
+    <form action="" method="post">
+    <p>name:
+        <input type="text" class="form-control" name="name" value="{{ edit_obj.name }}">
+    </p>
+    <p>age:
+        <input type="text" class="form-control" name="age" value="{{ edit_obj.age }}">
+    </p>
+        <input type="submit" class="btn bg-success pull-right">
+    </form>
+{% endblock %}
+
+
+
+
+

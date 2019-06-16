@@ -1,0 +1,36 @@
+{% extends 'home.html' %}
+
+{% block content %}
+    <h1 class="text-center">添加书籍</h1>
+    <form action="" method="post">
+        <p>title:
+            <input type="text" class="form-control" name="title">
+        </p>
+        <p>price:
+            <input type="text" class="form-control" name="price">
+        </p>
+        <p>publish_date:
+            <input type="date" class="form-control" name="date">
+        </p>
+        <p>publish:
+            <select name="publish" id="" class="form-control">
+                {% for publish in publish_list %}
+                    <option value="{{ publish.pk }}">{{ publish.name }}</option>
+                {% endfor %}
+            </select>
+        </p>
+        <p>authors:
+            <select name="authors" id="" class="form-control" multiple>
+                {% for author in author_list %}
+                    <option value="{{ author.pk }}">{{ author.name }}</option>
+                {% endfor %}
+            </select>
+        </p>
+        <input type="submit" class="btn bg-warning pull-right">
+    </form>
+{% endblock %}
+
+
+
+
+

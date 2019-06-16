@@ -1,0 +1,52 @@
+<!--继承主页-->
+{% extends 'home.html' %}
+
+<!--在主页变动区域内写内容-->
+{% block content %}
+    <a href="{% url 'book_add' %}" class="btn bg-info">添加书籍 </a>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+        <tr>
+            <th style="text-align: center">id</th>
+            <th style="text-align: center">title</th>
+            <th style="text-align: center">price</th>
+            <th style="text-align: center">publish</th>
+            <th style="text-align: center">publish_time</th>
+            <th style="text-align: center">authors</th>
+            <th style="text-align: center">actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--从书籍列表中循环出书的对象-->
+        {% for book in book_list %}
+            <tr>
+                <td>{{ book.pk }}</td>
+                <td>{{ book.title }}</td>
+                <td>{{ book.price }}</td>
+                <td>{{ book.publish.name }}</td>
+                <!--过滤器给时间设置格式-->
+                <td>{{ book.publish_time|date:'Y-m-d' }}</td>
+                <td>
+                    {% for author_obj in book.authors.all %}
+                        {% if forloop.last %}
+                            {{ author_obj.name }}
+                        {% else %}
+                            {{ author_obj.name }}、
+                        {% endif %}
+                    {% endfor %}
+                </td>
+                <td style="text-align: center">
+                    <a href="{% url 'book_edit' book.pk %}" class="btn bg-success btn-sm" >编辑</a>
+                    <a href="{% url 'book_delete' book.pk %}" class="btn bg-danger btn-sm">删除</a>
+                </td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+{% endblock %}
+
+
+
+
